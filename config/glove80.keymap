@@ -25,39 +25,6 @@
 #define LAYER_Game 3
 #define LAYER_Nav 4
 
-/ {
-    macros {
-        rgb_ug_status_macro: rgb_ug_status_macro {
-            label = "RGB_UG_STATUS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_STATUS>;
-        };
-    };
-};
-
-/ {
-    behaviors {
-        magic: magic {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MAGIC_HOLD_TAP";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&rgb_ug_status_macro>;
-        };
-
-        to_1: to_1 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "TO_1";
-            bindings = <&macro_to_1>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-    };
-};
-
 /* #define for key positions */
 
 #define POS_LH_T1 52
@@ -145,6 +112,13 @@
 
 / {
     macros {
+        rgb_ug_status_macro: rgb_ug_status_macro {
+            label = "RGB_UG_STATUS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_STATUS>;
+        };
+
         macro_to_0: to_0 {
             label = "to_layer_0";
             compatible = "zmk,behavior-macro";
@@ -178,6 +152,28 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&rgb_ug RGB_COLOR_HSB(0, 0, 100) &to 4>;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        magic: magic {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MAGIC_HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&rgb_ug_status_macro>;
+        };
+
+        to_1: to_1 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TO_1";
+            bindings = <&macro_to_1>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
         };
     };
 };
