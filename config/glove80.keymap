@@ -123,7 +123,9 @@
             label = "to_layer_0";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+
             //bindings = <&rgb_ug RGB_COLOR_HSB(240, 100, 100) &to 0>;
+
             bindings = <&rgb_ug RGB_ON &rgb_ug RGB_COLOR_HSB(240, 100, 100)>; // blue
         };
 
@@ -131,7 +133,9 @@
             label = "to_layer_1";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+
             //bindings = <&rgb_ug RGB_COLOR_HSB(0, 100, 100) &to 1>;
+
             bindings = <&rgb_ug RGB_ON &rgb_ug RGB_COLOR_HSB(0, 100, 100)>; // red
         };
 
@@ -154,6 +158,20 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&rgb_ug RGB_COLOR_HSB(0, 0, 100) &to 4>;
+        };
+
+        rgblayer: rgblayer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&to 0>,
+                <&macro_tap>,
+                <&rgb_ug RGB_ON>,
+                <&macro_tap>,
+                <&rgb_ug RGB_COLOR_HSB(239,100,50)>;
+
+            label = "RGBLAYER";
         };
     };
 };
@@ -193,7 +211,7 @@
 &kp TAB    &kp Q     &kp W          &kp E         &kp R     &kp T                                                                         &kp Y   &kp U     &kp I         &kp O        &kp P     &kp BSLH
 &kp ESC    &kp A     &kp S          &kp D         &kp F     &kp G                                                                         &kp H   &kp J     &kp K         &kp L        &kp SEMI  &kp SQT
 &kp LSHFT  &kp Z     &kp X          &kp C         &kp V     &kp B   &none      &kp DEL   &kp LA(LEFT)  &kp LA(RIGHT)  &kp INS  &none      &kp N   &kp M     &kp COMMA     &kp DOT      &kp FSLH  &kp RSHFT
-&macro_to_0 &kp LBKT  &kp LS(COMMA)  &kp LS(LBKT)  &kp LPAR          &kp LCTRL  &kp LGUI  &kp LALT      &lt 4 K_APP    &kp RET  &kp SPACE          &kp RPAR  &kp LS(RBKT)  &kp LS(DOT)  &kp RBKT  &macro_to_1
+&rgblayer  &kp LBKT  &kp LS(COMMA)  &kp LS(LBKT)  &kp LPAR          &kp LCTRL  &kp LGUI  &kp LALT      &lt 4 K_APP    &kp RET  &kp SPACE          &kp RPAR  &kp LS(RBKT)  &kp LS(DOT)  &kp RBKT  &macro_to_1
             >;
         };
 
