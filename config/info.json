@@ -86,7 +86,8 @@
         { "label": "R_C3R6", "row": 5, "col": 14, "x": 14, "y": 5 },
         { "label": "R_C4R6", "row": 5, "col": 15, "x": 15, "y": 5 },
         { "label": "R_C5R6", "row": 5, "col": 16, "x": 16, "y": 5.5 },
-        { "label": "R_C6R6", "row": 5, "col": 17, "x": 17, "y": 5.5 }
+        { "label": "R_C6R6", "row": 5, "col": 17, "x": 17, "y": 5.5 },
+        { "label": "R_C3R7", "row": 6, "col": 14, "x": 14, "y": 7 }
       ]
     }
   }

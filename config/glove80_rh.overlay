@@ -1,0 +1,33 @@
+/ {
+    chosen {
+        zmk,kscan = &kscan_right_composite;
+        zmk,matrix-transform = &default_transform;
+        zephyr,code-partition = &code_partition;
+        zephyr,sram = &sram0;
+        zephyr,flash = &flash0;
+        zephyr,console = &cdc_acm_uart;
+    };
+
+    kscan_right_composite: kscan_composite {
+        compatible = "zmk,kscan-composite";
+        rows = <7>; // 6 of the default glove80, plus the extra row from GPIOs
+        columns = <14>;
+
+        maxtrix {
+            kscan = <&kscan0>; // defined in glove80.dtsi
+        };
+
+        direct {
+            kscan = <&kscan2>;
+            row-offset = <6>;
+            column-offset = <10>;
+        }
+
+        kscan2: kscan_direct {
+            compatible = "zmk,kscan-gpio-direct";
+            input-gpios
+                = <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+                ,
+        }
+    }
+}
